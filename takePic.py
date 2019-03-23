@@ -6,8 +6,6 @@ import subprocess
 cap = cv2.VideoCapture(0)
 j=1
 time.sleep(3)
-subprocess.call(['rm','./foto.png'])
-subprocess.call(['./upload.sh'])
 while(True):
 	# Capture frame-by-frame
     ret, frame = cap.read()
