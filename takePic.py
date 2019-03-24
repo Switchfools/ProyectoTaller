@@ -11,7 +11,7 @@ while(True):
     ret, frame = cap.read()
     # cv2.imwrite('pic2_{0}.png'.format(j),frame)
     al_frame=af.faceAlign(frame)
-    cv2.imwrite('foto4.png'.format(j),al_frame)
+    cv2.imwrite('foto5.png'.format(j),al_frame)
     j=j+1
     # Display the resulting frame
     #cv2.imshow('frame', frame)
