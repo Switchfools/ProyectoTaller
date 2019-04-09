@@ -34,8 +34,7 @@ with connection:
     cur.execute("SELECT * FROM imagenes ORDER BY id DESC LIMIT 1;")
     rows = cur.fetchall()
     id_actual=rows[0]
-    print(id_actual)
     for row in rows:
         print("{0}".format(row[0]))
-    id_nuevo=int(id_actual)+1
+    id_nuevo=int(id_actual[0])+1
     cur.execute("INSERT INTO imagenes VALUES("+str(id_nuevo)+");")
