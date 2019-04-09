@@ -2,7 +2,12 @@ import align_faces as af
 import cv2
 import time
 import subprocess
+import pymysql
 
+connection= pymysql.connect(host='192.168.0.100',
+                            user='mac',
+                            password='0000',
+                            db='casa')
 cap = cv2.VideoCapture(0)
 j=1
 time.sleep(3)
@@ -24,3 +29,12 @@ cap.release()
 #cv2.imshow('frame', frame)
 cv2.destroyAllWindows()
 subprocess.call(['./upload.sh'])
+with connection:
+    cur = connection.cursor()
+    cur.execute("SELECT * FROM imagenes ORDER BY id DESC LIMIT 1;")
+    rows = cur.fetchall()
+    id_actual=rows[0]
+    for row in rows:
+        print("{0}".format(row[0]))
+    id_nuevo=str(id_actual+1)
+    cur.execute("INSERT INTO imagenes VALUES("+id_nuevo+");")
