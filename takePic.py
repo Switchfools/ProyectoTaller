@@ -36,5 +36,5 @@ with connection:
     id_actual=rows[0]
     for row in rows:
         print("{0}".format(row[0]))
-    id_nuevo=id_actual+1
+    id_nuevo=int(id_actual)+1
     cur.execute("INSERT INTO imagenes VALUES("+str(id_nuevo)+");")
