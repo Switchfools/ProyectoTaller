@@ -5,7 +5,7 @@ import subprocess
 import pymysql
 
 connection= pymysql.connect(host='192.168.0.100',
-                            user='mac',
+                            user='raspberry',
                             password='0000',
                             db='casa')
 cap = cv2.VideoCapture(0)
