@@ -18,7 +18,7 @@ while True:
       print('Button pressed')
       nuevo_estado ="ALARMA ON"
       GPIO.output(23, GPIO.HIGH)
-      #os.system('python3 /home/pi/Documents/ProyectoTaller/takePic.py')
+      os.system('python3 /home/pi/Documents/ProyectoTaller/takePic.py')
       
     else:
       nuevo_estado ="ALARMA OFF"
