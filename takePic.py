@@ -5,6 +5,7 @@ import subprocess
 import faceRecognition as fr
 import pymysql
 import RPi.GPIO as GPIO
+import os
 from picamera.array import PiRGBArray
 from picamera import PiCamera
 
@@ -30,6 +31,7 @@ for frame in cap.capture_continuous(rawCapture, format="bgr", use_video_port=Tru
     if len(faces) > 0:
         cv2.imwrite('FotosEntrada/foto5.png'.format(j),frame)
         GPIO.output(23, GPIO.LOW)
+        os.system('python3 /home/pi/Documents/ProyectoTaller/abrirPuerta.py')
         break
     j=j+1
     # Display the resulting frame
