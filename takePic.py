@@ -42,7 +42,7 @@ for frame in cap.capture_continuous(rawCapture, format="bgr", use_video_port=Tru
 #cv2.imshow('frame', frame)
 cv2.destroyAllWindows()
 subprocess.call(['./upload.sh'])
-os.system('python3 /home/pi/Documents/ProyectoTaller/abrirPuerta.py')
+
 
 with connection:
     cur = connection.cursor()
@@ -53,3 +53,4 @@ with connection:
         print("{0}".format(row[0]))
     id_nuevo=int(id_actual[0])+1
     cur.execute("INSERT INTO imagenes VALUES("+str(id_nuevo)+");")
+os.system('python3 /home/pi/Documents/ProyectoTaller/abrirPuerta.py')
