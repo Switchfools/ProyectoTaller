@@ -53,4 +53,5 @@ with connection:
         print("{0}".format(row[0]))
     id_nuevo=int(id_actual[0])+1
     cur.execute("INSERT INTO imagenes VALUES("+str(id_nuevo)+");")
+cap.close()
 os.system('python3 /home/pi/Documents/ProyectoTaller/abrirPuerta.py')
