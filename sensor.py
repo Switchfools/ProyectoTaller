@@ -19,7 +19,7 @@ while True:
       nuevo_estado ="ALARMA ON"
       #GPIO.output(23, GPIO.HIGH)
       os.system('python3 /home/pi/Documents/ProyectoTaller/takePic.py')
-      
+      break
     else:
       nuevo_estado ="ALARMA OFF"
       #GPIO.output(23, GPIO.LOW)
