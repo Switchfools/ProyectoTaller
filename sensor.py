@@ -11,7 +11,7 @@ nuevo_estado = "ALARMA OFF"
 #time.sleep(4)
 
 while True:
-    f = open("Valentina.txt","a")
+    #f = open("Valentina.txt","a")
     time.sleep(1)
 
     if GPIO.event_detected(4):
@@ -24,8 +24,8 @@ while True:
       nuevo_estado ="ALARMA OFF"
       GPIO.output(23, GPIO.LOW)
     print(nuevo_estado)
-    f.write(str(nuevo_estado)+'/n')
-    f.close()
+    #f.write(str(nuevo_estado)+'/n')
+    #f.close()
     time.sleep(1)
     
 
