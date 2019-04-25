@@ -4,6 +4,7 @@ import time
 import subprocess
 import faceRecognition as fr
 import pymysql
+import RPi.GPIO as GPIO
 from picamera.array import PiRGBArray
 from picamera import PiCamera
 
@@ -11,20 +12,24 @@ connection= pymysql.connect(host='192.168.0.100',
                             user='rasp',
                             password='0000',
                             db='casa')
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(23, GPIO.OUT)
 cap = PiCamera()
 cap.resolution = (640, 480)
 cap.framerate = 32
 rawCapture = PiRGBArray(cap, size=(640, 480))
 j=1
+GPIO.output(23, GPIO.HIGH)
 time.sleep(3)
 for frame in cap.capture_continuous(rawCapture, format="bgr", use_video_port=True):
-	# Capture frame-by-frame
+    # Capture frame-by-frame
     frame = frame.array
     faces,gray = fr.faceDetection(frame)
     # cv2.imwrite('pic2_{0}.png'.format(j),frame)
     #al_frame=af.faceAlign(frame)
     if len(faces) > 0:
         cv2.imwrite('FotosEntrada/foto5.png'.format(j),frame)
+        GPIO.output(23, GPIO.LOW)
         break
     j=j+1
     # Display the resulting frame
