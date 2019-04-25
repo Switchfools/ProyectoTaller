@@ -1,9 +1,9 @@
 import pymysql
 import os
-connection= pymysql.connect(host='localhost',
-    user='root',
-    password='12345',
-    db='casa')
+connection= pymysql.connect(host='192.168.0.100',
+                            user='rasp',
+                            password='0000',
+                            db='casa')
 
 with connection:
         cur = connection.cursor()
