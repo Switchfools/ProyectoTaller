@@ -16,9 +16,9 @@ connection= pymysql.connect(host='192.168.0.100',
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(23, GPIO.OUT)
 cap = PiCamera()
-cap.resolution = (2592 , 1944)
+cap.resolution = (1080 , 720)
 cap.framerate = 30
-rawCapture = PiRGBArray(cap, size=(2592 , 1944))
+rawCapture = PiRGBArray(cap, size=(1080 , 720))
 j=1
 GPIO.output(23, GPIO.HIGH)
 time.sleep(3)
