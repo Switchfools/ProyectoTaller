@@ -20,4 +20,5 @@ for frame in cap.capture_continuous(rawCapture, format="bgr", use_video_port=Tru
 	j=j+1
 	# Display the resulting frame
 	cv2.imshow('frame', frame)
-	cv2.waitKey(0) 
+	cv2.waitKey(0)
+    rawCapture.truncate(0)
