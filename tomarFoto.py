@@ -9,9 +9,9 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(23, GPIO.OUT)
 GPIO.output(23, GPIO.HIGH)
 cap = PiCamera()
-cap.resolution = (2592 x 1944)
+cap.resolution = (2592 , 1944)
 cap.framerate = 30
-rawCapture = PiRGBArray(cap, size=(2592 x 1944))
+rawCapture = PiRGBArray(cap, size=(2592 , 1944))
 j=1
 for frame in cap.capture_continuous(rawCapture, format="bgr", use_video_port=True):
 	# Capture frame-by-frame
