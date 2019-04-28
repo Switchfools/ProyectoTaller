@@ -1,15 +1,21 @@
 import align_faces as af
 import cv2
 import time
+import RPi.GPIO as GPIO
+import os
+from picamera.array import PiRGBArray
+from picamera import PiCamera
 
-cap = cv2.VideoCapture(0)
+cap = PiCamera()
+cap.resolution = (640, 480)
+cap.framerate = 32
+rawCapture = PiRGBArray(cap, size=(640, 480))
 j=1
 while(True):
 	# Capture frame-by-frame
-	ret, frame = cap.read()
-	cv2.imwrite('pic_al_{0}.png'.format(j),al_frame)
+	frame = frame.array
+	cv2.imwrite('pic_al_{0}.png'.format(j),frame)
 	j=j+1
 	# Display the resulting frame
 	cv2.imshow('frame', frame)
-	cv2.imshow('alignedframe', al_frame)
 	cv2.waitKey(0) 
