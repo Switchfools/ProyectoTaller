@@ -30,5 +30,5 @@ while(True):
         else:
             print('Acceso no autorizado')
         fecha_actual=fecha_nueva
-        os.system('./home/pi/Documents/ProyectoTaller/rm.sh') 
+        os.system('.~/home/pi/Documents/ProyectoTaller/rm.sh') 
         break
