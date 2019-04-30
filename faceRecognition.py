@@ -1,7 +1,7 @@
 import cv2
 import os
 import numpy as np
-
+import align_faces as af
 
 def faceDetection(test_img):
     gray_img=cv2.cvtColor(test_img,cv2.COLOR_BGR2GRAY)#convert color image to grayscale
@@ -30,19 +30,16 @@ def labels_for_training_data(directory):
             print("img_path:",img_path)
             print("id:",id)
             test_img=cv2.imread(img_path)#loading each image one by one
-            if test_img is None:
-                print("Image not loaded properly")
-                continue
-            faces_rect,gray_img=faceDetection(test_img)#Calling faceDetection function to return faces detected in particular image
-            if len(faces_rect)!=1:
-               continue #Since we are assuming only single person images are being fed to classifier
+            # if test_img is None:
+            #     print("Image not loaded properly")
+            #     continue
+            # faces_rect,gray_img=faceDetection(test_img)#Calling faceDetection function to return faces detected in particular image
+            # if len(faces_rect)!=1:
+            #    continue #Since we are assuming only single person images are being fed to classifier
             (x,y,w,h)=faces_rect[0]
             roi_gray=gray_img[y:y+w,x:x+h]#cropping region of interest i.e. face area from grayscale image
-            clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8,8))
-            roi_eq = clahe.apply(roi_gray)
-            #compute a Laplacian filter to find the borders.
-            Borders=cv2.Laplacian(roi_eq, ddepth=3)
-            faces.append(Borders)
+            print(test_img)
+            faces.append(test_img)
             faceID.append(int(id))
     return faces,faceID
 
